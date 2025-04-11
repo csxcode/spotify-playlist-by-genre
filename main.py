@@ -30,11 +30,13 @@ if __name__ == "__main__":
     print(f"- Potential playlists to create: {potential_count}")
     print(f"- Time taken: {minutes} minutes {seconds} seconds")
     
-    # Display potential playlist names
+    # Display potential playlist names with song counts
     if potential_count > 0:
         print("\nPotential playlist names:")
-        for genre in sorted(potential_genres):
-            print(f"- [Auto] {genre} Collection")
+        # Sort genres by song count (descending)
+        sorted_genres = sorted(potential_genres.items(), key=lambda x: x[1], reverse=True)
+        for genre, count in sorted_genres:
+            print(f"- [Auto] {genre} Collection ({count} songs)")
     
     # Save to CSV
     output_path = os.path.join(output_dir, 'spotify_tracks.csv')

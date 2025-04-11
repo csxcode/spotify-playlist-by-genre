@@ -181,16 +181,16 @@ def count_potential_playlists(df, min_tracks=3):
     """Count how many playlists could be created based on genre distribution
     
     Returns:
-        tuple: (count of potential playlists, list of genre names)
+        tuple: (count of potential playlists, dict of genre names with their track counts)
     """
     potential_playlists = 0
-    potential_genres = []
+    potential_genres = {}
     genres_count = df['genre'].value_counts()
     
     for genre, count in genres_count.items():
         if count >= min_tracks:
             potential_playlists += 1
-            potential_genres.append(genre)
+            potential_genres[genre] = count
             
     return potential_playlists, potential_genres
 
