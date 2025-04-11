@@ -51,12 +51,16 @@ def fetch_artist_genre(artist_id):
     return artist['genres'][0] if artist['genres'] else None
 
 def create_playlists_by_genre(df):
+    playlist_prefix = "[Auto]"
     genres = df['genre'].unique()
     for genre in genres:
         filtered = df[df['genre'] == genre]
         if len(filtered) < 3:  # Optional threshold
+            print(f"Excluded genre '{genre}' with only {len(filtered)} songs (below threshold of 3):")
+            for _, row in filtered.iterrows():
+                print(f"  - {row['song']} by {row['artist']}")
             continue
-        playlist = sp.user_playlist_create(user=sp.me()['id'], name=f"{genre} Collection", public=False)
+        playlist = sp.user_playlist_create(user=sp.me()['id'], name=f"{playlist_prefix} {genre} Collection", public=False)
         track_urls = filtered['url'].tolist()
         track_ids = [url.split("/")[-1] for url in track_urls]
         for i in range(0, len(track_ids), 100):
