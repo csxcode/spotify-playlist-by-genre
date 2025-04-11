@@ -307,8 +307,8 @@ def create_playlists_by_genre(df):
             skipped_count += 1
             continue
             
-        print(f"Creating playlist: {playlist_prefix} {genre} Collection")
-        playlist = sp.user_playlist_create(user=sp.me()['id'], name=f"{playlist_prefix} {genre} Collection", public=False)
+        print(f"Creating playlist: {playlist_prefix} {genre}")
+        playlist = sp.user_playlist_create(user=sp.me()['id'], name=f"{playlist_prefix} {genre}", public=False)
         track_urls = filtered['url'].tolist()
         track_ids = [url.split("/")[-1] for url in track_urls]
         
