@@ -36,7 +36,7 @@ if __name__ == "__main__":
         # Sort genres by song count (descending)
         sorted_genres = sorted(potential_genres.items(), key=lambda x: x[1], reverse=True)
         for genre, count in sorted_genres:
-            print(f"- [Auto] {genre} Collection ({count} songs)")
+            print(f"- [Auto] {genre} ({count} songs)")
     
     # Save to CSV
     output_path = os.path.join(output_dir, 'spotify_tracks.csv')
