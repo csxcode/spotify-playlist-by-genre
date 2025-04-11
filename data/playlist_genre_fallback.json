@@ -11,7 +11,8 @@
 			"trap latino",
 			"chilean trap",
 			"edm trap",
-			"trap"
+			"trap",
+			"brazilian trap"
 		]
 	},
 	{
@@ -31,7 +32,15 @@
 			"freestyle",
 			"hip hop",
 			"trip hop",
-			"christian hip hop"
+			"christian hip hop",
+			"boom bap",
+			"melodic rap",
+			"memphis rap",
+			"lo-fi beats",
+			"lo-fi",
+			"country hip hop",
+			"brooklyn drill",
+			"west coast hip hop"
 		]
 	},
 	{
@@ -59,7 +68,18 @@
 			"bass music",
 			"g-house",
 			"melodic house",
-			"latin house"
+			"latin house",
+			"progressive house",
+			"disco",
+			"witch house",
+			"melodic bass",
+			"brazilian bass",
+			"slap house",
+			"french house",
+			"chillwave",
+			"electronica",
+			"breakbeat",
+			"electro house"
 		]
 	},
 	{
@@ -73,7 +93,26 @@
 			"rock",
 			"classic rock",
 			"post-grunge",
-			"alternative rock"
+			"alternative rock",
+			"indie rock",
+			"pop rock",
+			"latin rock",
+			"punk",
+			"modern rock",
+			"industrial rock",
+			"surf rock",
+			"alternative metal",
+			"glam metal",
+			"emo",
+			"alternative pop",
+			"indie pop",
+			"french pop",
+			"k-pop",
+			"j-pop",
+			"v-pop",
+			"folk pop",
+			"art pop",
+			"italian singer-songwriter"
 		]
 	},
 	{
@@ -85,7 +124,17 @@
 			"urbano latino",
 			"guaracha",
 			"salsa romantica",
-			"moombahton"
+			"moombahton",
+			"latin urban",
+			"flamenco",
+			"bachata",
+			"latin alternative",
+			"kizomba",
+			"corrido",
+			"dembow",
+			"chicha",
+			"afrobeats",
+			"merengue"
 		]
 	},
 	{
@@ -105,7 +154,12 @@
 			"rkt",
 			"melbourne bounce",
 			"hyphy",
-			"crunk"
+			"crunk",
+			"children's music",
+			"comedy",
+			"soundtrack",
+			"rally house",
+			"jazz beats"
 		]
 	},
 	{

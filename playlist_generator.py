@@ -15,6 +15,8 @@ GENRE_MAPPING_FILE = 'data/playlist_genre_fallback.json'
 # Artist genre fallback mapping
 artist_genre_fallback = {}
 ARTIST_GENRE_FALLBACK_FILE = 'data/artists_genre_fallback.json'
+# Playlist prefix for auto-generated playlists
+PLAYLIST_PREFIX = "[Auto]"
 
 def normalize_string(text):
     """Normalize a string for consistent comparison (lowercase, trim spaces)"""
@@ -109,7 +111,26 @@ def save_cache():
     except Exception as e:
         print(f"Error saving cache: {e}")
 
+def delete_auto_playlists():
+    """Delete all playlists with the [Auto] prefix to avoid duplicates"""
+    print("\nSearching for auto-generated playlists to delete...")
+    playlists = sp.current_user_playlists()
+    delete_count = 0
+    
+    for playlist in playlists['items']:
+        # Check if the playlist name starts with the prefix and belongs to the current user
+        if playlist['name'].startswith(PLAYLIST_PREFIX) and playlist['owner']['id'] == sp.me()['id']:
+            print(f"Deleting playlist: {playlist['name']}")
+            sp.user_playlist_unfollow(user=sp.me()['id'], playlist_id=playlist['id'])
+            delete_count += 1
+            time.sleep(0.5)  # Respect rate limits
+    
+    print(f"Deleted {delete_count} auto-generated playlists.")
+
 def fetch_all_tracks():
+    # Delete auto-generated playlists first
+    delete_auto_playlists()
+    
     # Load existing cache at the start
     load_cache()
     # Load genre mapping
@@ -269,7 +290,7 @@ def fetch_artist_genre(artist_id):
     artist_genre_cache[artist_id] = original_genre
     return map_genre(original_genre)
 
-def count_potential_playlists(df, min_tracks=3):
+def count_potential_playlists(df, min_tracks=1):
     """Count how many playlists could be created based on genre distribution
     
     Returns:
@@ -288,27 +309,18 @@ def count_potential_playlists(df, min_tracks=3):
 
 def create_playlists_by_genre(df):
     print("\nStarting to create playlists by genre...")
-    playlist_prefix = "[Auto]"
     genres = df['genre'].unique()
     print(f"Found {len(genres)} unique genres in your music.")
     
     created_count = 0
-    skipped_count = 0
     
     for i, genre in enumerate(genres):
         print(f"\nProcessing genre {i+1}/{len(genres)}: {genre}")
         filtered = df[df['genre'] == genre]
         print(f"Found {len(filtered)} songs in the '{genre}' genre")
         
-        if len(filtered) < 3:  # Optional threshold
-            print(f"Excluded genre '{genre}' with only {len(filtered)} songs (below threshold of 3):")
-            for _, row in filtered.iterrows():
-                print(f"  - {row['song']} by {row['artist']}")
-            skipped_count += 1
-            continue
-            
-        print(f"Creating playlist: {playlist_prefix} {genre}")
-        playlist = sp.user_playlist_create(user=sp.me()['id'], name=f"{playlist_prefix} {genre}", public=False)
+        print(f"Creating playlist: {PLAYLIST_PREFIX} {genre}")
+        playlist = sp.user_playlist_create(user=sp.me()['id'], name=f"{PLAYLIST_PREFIX} {genre}", public=False)
         track_urls = filtered['url'].tolist()
         track_ids = [url.split("/")[-1] for url in track_urls]
         
@@ -322,7 +334,7 @@ def create_playlists_by_genre(df):
         created_count += 1
         time.sleep(1)  # Respect rate limits
     
-    print(f"\nPlaylist creation complete: Created {created_count} playlists, skipped {skipped_count} genres with too few tracks")
+    print(f"\nPlaylist creation complete: Created {created_count} playlists")
 
 def apply_artist_genre_fallback(tracks, track_artist_mapping):
     """Apply the artist genre fallback for tracks with Unknown genre"""
