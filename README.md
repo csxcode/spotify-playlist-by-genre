@@ -45,3 +45,4 @@ deactivate
 ## Notes
 - The script will create playlists with the prefix "[Auto]" to identify automatically generated playlists
 - Genres with fewer than 3 songs will be excluded from playlist creation (this will be displayed in the console)
+- CSV files are saved to the `output` directory
