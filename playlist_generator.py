@@ -9,6 +9,81 @@ sp = get_spotify_client()
 # Cache for storing artist genres
 artist_genre_cache = {}
 CACHE_FILE = 'output/artist_genre_cache.json'
+# Genre mapping from the fallback file
+genre_mapping = {}
+GENRE_MAPPING_FILE = 'data/playlist_genre_fallback.json'
+# Artist genre fallback mapping
+artist_genre_fallback = {}
+ARTIST_GENRE_FALLBACK_FILE = 'data/artists_genre_fallback.json'
+
+def normalize_string(text):
+    """Normalize a string for consistent comparison (lowercase, trim spaces)"""
+    if not text:
+        return text
+    return ' '.join(text.lower().split())
+
+def load_artist_genre_fallback():
+    """Load the artist-genre fallback data from file"""
+    global artist_genre_fallback
+    if os.path.exists(ARTIST_GENRE_FALLBACK_FILE):
+        try:
+            with open(ARTIST_GENRE_FALLBACK_FILE, 'r') as f:
+                artist_data = json.load(f)
+                
+            # Create a mapping from artist name to genre
+            for item in artist_data:
+                normalized_artist = normalize_string(item['artist'])
+                artist_genre_fallback[normalized_artist] = item['genre']
+                    
+            print(f"Loaded artist-genre fallback data for {len(artist_genre_fallback)} artists")
+        except Exception as e:
+            print(f"Error loading artist-genre fallback: {e}")
+            artist_genre_fallback = {}
+    else:
+        print(f"Artist-genre fallback file not found at {ARTIST_GENRE_FALLBACK_FILE}")
+        artist_genre_fallback = {}
+
+def load_genre_mapping():
+    """Load the genre mapping from the fallback file"""
+    global genre_mapping
+    if os.path.exists(GENRE_MAPPING_FILE):
+        try:
+            with open(GENRE_MAPPING_FILE, 'r') as f:
+                genre_groups = json.load(f)
+                
+            # Create a mapping from each alias to the main genre
+            for group in genre_groups:
+                # Standardize the main genre format (first letter of each word uppercase)
+                main_genre = group['genre']
+                main_genre = ' '.join(word.capitalize() for word in main_genre.split())
+                
+                # Add the main genre itself as an alias
+                genre_mapping[normalize_string(main_genre)] = main_genre
+                
+                for alias in group['aliases']:
+                    genre_mapping[normalize_string(alias)] = main_genre
+                    
+            print(f"Loaded genre mappings for {len(genre_groups)} genre groups")
+        except Exception as e:
+            print(f"Error loading genre mapping: {e}")
+            genre_mapping = {}
+    else:
+        print(f"Genre mapping file not found at {GENRE_MAPPING_FILE}")
+        genre_mapping = {}
+
+def map_genre(original_genre):
+    """Map a genre to a more general category if it exists in the mapping"""
+    if not original_genre or original_genre == 'Unknown':
+        return original_genre
+        
+    # Check if this genre has a mapping
+    normalized_genre = normalize_string(original_genre)
+    if normalized_genre in genre_mapping:
+        mapped_genre = genre_mapping[normalized_genre]
+        return mapped_genre
+    
+    # If no mapping found, standardize the format for consistency
+    return ' '.join(word.capitalize() for word in original_genre.split())
 
 def load_cache():
     """Load the artist genre cache from disk if it exists"""
@@ -37,6 +112,10 @@ def save_cache():
 def fetch_all_tracks():
     # Load existing cache at the start
     load_cache()
+    # Load genre mapping
+    load_genre_mapping()
+    # Load artist-genre fallback data
+    load_artist_genre_fallback()
     
     print("Starting to fetch all tracks...")
     results = []
@@ -52,11 +131,12 @@ def fetch_all_tracks():
         for item in saved_tracks['items']:
             track = item['track']
             artist_id = track['artists'][0]['id']
+            artist_name = track['artists'][0]['name']
             
             # Store track and artist information for later processing
             track_data = {
                 'song': track['name'],
-                'artist': track['artists'][0]['name'],
+                'artist': artist_name,
                 'genre': None,  # Will be filled later
                 'url': track['external_urls']['spotify']
             }
@@ -67,8 +147,10 @@ def fetch_all_tracks():
                 artist_ids_to_fetch.add(artist_id)
                 track_artist_mapping[track['id']] = {'artist_id': artist_id, 'track_data': track_data}
             else:
-                # If we already have the genre in cache, assign it directly
-                track_data['genre'] = artist_genre_cache[artist_id] or 'Unknown'
+                # If we already have the genre in cache, assign it directly with mapping
+                original_genre = artist_genre_cache[artist_id]
+                mapped_genre = map_genre(original_genre)
+                track_data['genre'] = mapped_genre or 'Unknown'
             
             saved_count += 1
             
@@ -103,11 +185,12 @@ def fetch_all_tracks():
                 track = item['track']
                 if track:
                     artist_id = track['artists'][0]['id']
+                    artist_name = track['artists'][0]['name']
                     
                     # Store track and artist information for later processing
                     track_data = {
                         'song': track['name'],
-                        'artist': track['artists'][0]['name'],
+                        'artist': artist_name,
                         'genre': None,  # Will be filled later
                         'url': track['external_urls']['spotify']
                     }
@@ -118,8 +201,10 @@ def fetch_all_tracks():
                         artist_ids_to_fetch.add(artist_id)
                         track_artist_mapping[track['id']] = {'artist_id': artist_id, 'track_data': track_data}
                     else:
-                        # If we already have the genre in cache, assign it directly
-                        track_data['genre'] = artist_genre_cache[artist_id] or 'Unknown'
+                        # If we already have the genre in cache, assign it directly with mapping
+                        original_genre = artist_genre_cache[artist_id]
+                        mapped_genre = map_genre(original_genre)
+                        track_data['genre'] = mapped_genre or 'Unknown'
                     
                     playlist_track_count += 1
                     track_count += 1
@@ -133,6 +218,9 @@ def fetch_all_tracks():
     
     # Fetch artist genres in batches
     fetch_artist_genres_in_batches(list(artist_ids_to_fetch), track_artist_mapping)
+    
+    # Apply artist genre fallback for tracks with Unknown genre
+    apply_artist_genre_fallback(results, track_artist_mapping)
     
     print(f"\nFinished processing a total of {len(results)} tracks.")
     print(f"Excluded {excluded_playlists} playlists that were not created by you.")
@@ -151,14 +239,17 @@ def fetch_artist_genres_in_batches(artist_ids, track_artist_mapping):
         artists = sp.artists(batch)['artists']
         
         for artist in artists:
-            # Save genre to cache
-            genre = artist['genres'][0] if artist['genres'] else None
-            artist_genre_cache[artist['id']] = genre
+            # Save original genre to cache
+            original_genre = artist['genres'][0] if artist['genres'] else None
+            artist_genre_cache[artist['id']] = original_genre
+            
+            # Map the genre if needed
+            mapped_genre = map_genre(original_genre)
             
             # Update all tracks associated with this artist
             for track_id, info in track_artist_mapping.items():
                 if info['artist_id'] == artist['id']:
-                    info['track_data']['genre'] = genre if genre else 'Unknown'
+                    info['track_data']['genre'] = mapped_genre if mapped_genre else 'Unknown'
         
         # Respect API rate limits
         if i < len(batches) - 1:
@@ -170,12 +261,13 @@ def fetch_artist_genres_in_batches(artist_ids, track_artist_mapping):
 def fetch_artist_genre(artist_id):
     """Function maintained for compatibility, now uses cache"""
     if artist_id in artist_genre_cache:
-        return artist_genre_cache[artist_id]
+        original_genre = artist_genre_cache[artist_id]
+        return map_genre(original_genre)
     
     artist = sp.artist(artist_id)
-    genre = artist['genres'][0] if artist['genres'] else None
-    artist_genre_cache[artist_id] = genre
-    return genre
+    original_genre = artist['genres'][0] if artist['genres'] else None
+    artist_genre_cache[artist_id] = original_genre
+    return map_genre(original_genre)
 
 def count_potential_playlists(df, min_tracks=3):
     """Count how many playlists could be created based on genre distribution
@@ -231,3 +323,37 @@ def create_playlists_by_genre(df):
         time.sleep(1)  # Respect rate limits
     
     print(f"\nPlaylist creation complete: Created {created_count} playlists, skipped {skipped_count} genres with too few tracks")
+
+def apply_artist_genre_fallback(tracks, track_artist_mapping):
+    """Apply the artist genre fallback for tracks with Unknown genre"""
+    unknown_count = 0
+    fallback_applied = 0
+    cache_updated = False
+    
+    for track in tracks:
+        if track['genre'] is None or track['genre'] == 'Unknown':
+            unknown_count += 1
+            normalized_artist = normalize_string(track['artist'])
+            if normalized_artist in artist_genre_fallback:
+                # Get genre from fallback and apply mapping if needed
+                original_genre = artist_genre_fallback[normalized_artist]
+                mapped_genre = map_genre(original_genre)
+                track['genre'] = mapped_genre
+                fallback_applied += 1
+                
+                # Find tracks with this artist that have artist IDs in the mapping
+                for track_id, info in track_artist_mapping.items():
+                    if normalize_string(info['track_data']['artist']) == normalized_artist:
+                        # Update cache with the fallback genre for this artist ID
+                        artist_id = info['artist_id']
+                        if artist_id not in artist_genre_cache or artist_genre_cache[artist_id] is None:
+                            artist_genre_cache[artist_id] = original_genre
+                            cache_updated = True
+                
+    print(f"\nFound {unknown_count} tracks with unknown genre")
+    print(f"Applied artist genre fallback to {fallback_applied} tracks")
+    
+    # Save the updated cache if changes were made
+    if cache_updated:
+        save_cache()
+        print(f"Updated artist genre cache with fallback data")

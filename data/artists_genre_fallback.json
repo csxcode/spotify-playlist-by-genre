@@ -1,0 +1,818 @@
+[
+	{
+		"artist": "Unknown Brain",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "NK",
+		"genre": "Pop"
+	},
+	{
+		"artist": "Cartoon",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Fraxo",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Unlike Pluto",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Leslie Shaw",
+		"genre": "Latin Pop"
+	},
+	{
+		"artist": "Alvaro Diaz",
+		"genre": "Latin Urban"
+	},
+	{
+		"artist": "Nigo",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Chris Heria",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Star Party",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "W Sound",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Robbie Williams",
+		"genre": "Pop Rock"
+	},
+	{
+		"artist": "The Federal Empire",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "Foreign Figures",
+		"genre": "Alternative Pop"
+	},
+	{
+		"artist": "Sam Tinnesz",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "SOFY",
+		"genre": "Indie Pop"
+	},
+	{
+		"artist": "PaceWon & Mr. Green",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Cleffy",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Mama Zula",
+		"genre": "World Music"
+	},
+	{
+		"artist": "Tommy Richman",
+		"genre": "R&B"
+	},
+	{
+		"artist": "Jet",
+		"genre": "Rock"
+	},
+	{
+		"artist": "American Authors",
+		"genre": "Indie Rock"
+	},
+	{
+		"artist": "Alleh",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Santana",
+		"genre": "Latin Rock"
+	},
+	{
+		"artist": "Dido",
+		"genre": "Pop"
+	},
+	{
+		"artist": "The Police",
+		"genre": "Rock"
+	},
+	{
+		"artist": "New Radicals",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "The Goo Goo Dolls",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "iZaak",
+		"genre": "Reggaeton"
+	},
+	{
+		"artist": "Bruno Mars",
+		"genre": "Pop"
+	},
+	{
+		"artist": "YUNGBLUD",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "K'NAAN",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Capital Cities",
+		"genre": "Indie Pop"
+	},
+	{
+		"artist": "DJ Snake",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "B.o.B",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Kris R.",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Coldplay",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "Jay Oc",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "MARCOS YTZ",
+		"genre": "Latin Urban"
+	},
+	{
+		"artist": "Kevis & Maykyy",
+		"genre": "Latin Urban"
+	},
+	{
+		"artist": "Yvng Meem",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Connor Price",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Mambru",
+		"genre": "Pop Rock"
+	},
+	{
+		"artist": "Watsebha",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Crystal Waters",
+		"genre": "House"
+	},
+	{
+		"artist": "Yerzy",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "J Abdiel",
+		"genre": "Reggaeton"
+	},
+	{
+		"artist": "Social Kid",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "TWO LANES",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Jack Harlow",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "DNCE",
+		"genre": "Pop"
+	},
+	{
+		"artist": "DJ Turbo",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Russ",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Metro Boomin",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Milky Chance",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "Twenty One Pilots",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "CloZee",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "The Neighbourhood",
+		"genre": "Indie Rock"
+	},
+	{
+		"artist": "Mac Miller",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Manic Focus",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Post Malone",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "conscience",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Dominic Fike",
+		"genre": "Alternative Pop"
+	},
+	{
+		"artist": "Tyga",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Ayo & Teo",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Lil Nas X",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Armani White",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "21 Savage",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Oliver Tree",
+		"genre": "Alternative Rock"
+	},
+	{
+		"artist": "Big Wild",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Keane",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Pharmacose",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Artifakts",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Soulja Boy",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Hudi",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Dennis Lloyd",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "JID",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Tee Grizzley",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "AMAG",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Og JonnyD",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Santy-P",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "ABBA",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "DIRTYXAN",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Adam Oh",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Ty Dolla $ign",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Isaac App",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Foster The People",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Lenny Kravitz",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Remy Zero",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Imagine Dragons",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "ICE CREAM MUSIC",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Trinix",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Shogun",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Green Neon DJ",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "Mc Lovin XD",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Serhat Durmus",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Gym Class Heroes",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Frank Ocean",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Tom Odell",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Marty Mula",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "WILLOW",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Louis The Child",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Rnbstylerz",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Big Gigantic",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "22 Void Beats",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Harry Styles",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Elton John",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Shouse",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "VALORANT",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Jaymes Young",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Tommygunnz",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Lost Heroes",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Godmode",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Zedline",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "The FifthGuys",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Will Smith",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "DaBaby",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "The Kid LAROI",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "The Geek x Vrv",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "THE SCOTTS",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Masked Wolf",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "FiASKO",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "KALEO",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Walls",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Jaden",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Kali Uchis",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Hippie Sabotage",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Dzharo & Khanza",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "TheFatRat",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Labrinth",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Foushe\u00e9",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "FireWithDankTunes",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Many Moons Ago",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "The Score",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Two Feet",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Kina",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Masego",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Eekkoo",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Neuropol",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Dusty Brown",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Lower Spectrum",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Oh Wonder",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "BlackGummy",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "SAINt JHN",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Khan DobleL",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Roxy Tones",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Ellie Goulding",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Refeci",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Ed Marquis",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Lucky Bossi",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Powfu",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "K CAMP",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Sub Urban",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "The Weeknd",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "MEDUZA",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Sueco",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Auntie Hammy",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "blackbear",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Y2K",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Micro TDH",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Tones And I",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Arizona Zervas",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Trevor Daniel",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Black Eyed Peas",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Rob $tone",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Bazzi",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "DJ Diego Alonso",
+		"genre": "Electronic"
+	},
+	{
+		"artist": "MEUTE",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "The Floozies",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "SNBRN",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Running Touch",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Bastille",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Claptone",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Axwell /\\ Ingrosso",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Dani Mart\u00edn",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Owl City",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "R\u00dcF\u00dcS DU SOL",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Jessie J",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Baby Keem",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Em3ge",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Trag\u00e9die",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "D12",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Sisqo",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Sean Kingston",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "The Pussycat Dolls",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Timbaland",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Fergie",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Flo Rida",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Akon",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Ciara",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Eamon",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Nelly",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Nelly Furtado",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Ne-Yo",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Jennifer Lopez",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Pham",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Napy",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Gorillaz",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Justin Bieber",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Fms Arg",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Far East Movement",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Hot Chelle Rae",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Tommee Profitt",
+		"genre": "Hip Hop"
+	},
+	{
+		"artist": "Qara 07",
+		"genre": "Hip Hop"
+	}
+]

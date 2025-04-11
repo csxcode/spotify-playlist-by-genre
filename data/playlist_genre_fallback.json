@@ -1,0 +1,115 @@
+[
+	{
+		"genre": "Reggaeton",
+		"aliases": ["reggaeton", "reggaeton chileno", "reggaeton mexa"]
+	},
+	{
+		"genre": "Trap",
+		"aliases": [
+			"argentine trap",
+			"dark trap",
+			"trap latino",
+			"chilean trap",
+			"edm trap",
+			"trap"
+		]
+	},
+	{
+		"genre": "Hip Hop",
+		"aliases": [
+			"mexican hip hop",
+			"latin hip hop",
+			"rap",
+			"east coast hip hop",
+			"phonk",
+			"drift phonk",
+			"jazz rap",
+			"emo rap",
+			"southern hip hop",
+			"aussie drill",
+			"meme rap",
+			"freestyle",
+			"hip hop",
+			"trip hop",
+			"christian hip hop"
+		]
+	},
+	{
+		"genre": "Reggae",
+		"aliases": ["reggae", "spanish-language reggae", "dancehall"]
+	},
+	{
+		"genre": "Pop",
+		"aliases": ["pop", "soft pop", "colombian pop", "latin pop", "bedroom pop"]
+	},
+	{
+		"genre": "Electronic",
+		"aliases": [
+			"electro swing",
+			"dubstep",
+			"tech house",
+			"future bass",
+			"house",
+			"bass house",
+			"tropical house",
+			"future house",
+			"stutter house",
+			"edm",
+			"downtempo",
+			"bass music",
+			"g-house",
+			"melodic house",
+			"latin house"
+		]
+	},
+	{
+		"genre": "Rock",
+		"aliases": [
+			"nu metal",
+			"rock en espa\u00f1ol",
+			"grunge",
+			"j-rock",
+			"funk rock",
+			"rock",
+			"classic rock",
+			"post-grunge",
+			"alternative rock"
+		]
+	},
+	{
+		"genre": "Latin",
+		"aliases": [
+			"salsa",
+			"timba",
+			"cumbia",
+			"urbano latino",
+			"guaracha",
+			"salsa romantica",
+			"moombahton"
+		]
+	},
+	{
+		"genre": "R&B",
+		"aliases": ["latin r&b", "r&b"]
+	},
+	{
+		"genre": "Indie",
+		"aliases": ["mexican indie", "indie", "latin indie"]
+	},
+	{
+		"genre": "Other",
+		"aliases": [
+			"anime",
+			"glitch",
+			"chillstep",
+			"rkt",
+			"melbourne bounce",
+			"hyphy",
+			"crunk"
+		]
+	},
+	{
+		"genre": "Funk",
+		"aliases": ["g-funk", "funk"]
+	}
+]
