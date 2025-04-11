@@ -37,9 +37,18 @@ def fetch_all_tracks():
     print("\nFetching tracks from your playlists...")
     playlists = sp.current_user_playlists()
     playlist_count = 0
+    excluded_playlists = 0
+    current_user_id = sp.me()['id']
+    
     for playlist in playlists['items']:
+        # Check if the current user is the owner of the playlist
+        if playlist['owner']['id'] != current_user_id:
+            print(f"Excluding playlist: {playlist['name']} (not created by you)")
+            excluded_playlists += 1
+            continue
+            
         playlist_count += 1
-        print(f"\nProcessing playlist {playlist_count}/{len(playlists['items'])}: {playlist['name']}")
+        print(f"\nProcessing playlist {playlist_count}/{len(playlists['items']) - excluded_playlists}: {playlist['name']}")
         tracks = sp.playlist_tracks(playlist['id'], limit=100)
         playlist_track_count = 0
         while tracks:
@@ -64,6 +73,7 @@ def fetch_all_tracks():
         print(f"Completed processing {playlist_track_count} tracks from playlist: {playlist['name']}")
 
     print(f"\nFinished processing a total of {len(results)} tracks.")
+    print(f"Excluded {excluded_playlists} playlists that were not created by you.")
     return pd.DataFrame(results)
 
 def fetch_artist_genre(artist_id):
