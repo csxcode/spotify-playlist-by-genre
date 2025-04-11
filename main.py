@@ -1,4 +1,4 @@
-from playlist_generator import fetch_all_tracks, create_playlists_by_genre
+from playlist_generator import fetch_all_tracks, create_playlists_by_genre, count_potential_playlists
 import os
 import time
 
@@ -21,10 +21,20 @@ if __name__ == "__main__":
     minutes = int(elapsed_time // 60)
     seconds = int(elapsed_time % 60)
     
+    # Count potential playlists
+    potential_count, potential_genres = count_potential_playlists(df)
+    
     print(f"\nSummary of collected data:")
     print(f"- Total tracks processed: {len(df)}")
     print(f"- Unique genres found: {len(df['genre'].unique())}")
+    print(f"- Potential playlists to create: {potential_count}")
     print(f"- Time taken: {minutes} minutes {seconds} seconds")
+    
+    # Display potential playlist names
+    if potential_count > 0:
+        print("\nPotential playlist names:")
+        for genre in sorted(potential_genres):
+            print(f"- [Auto] {genre} Collection")
     
     # Save to CSV
     output_path = os.path.join(output_dir, 'spotify_tracks.csv')

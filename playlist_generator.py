@@ -177,6 +177,23 @@ def fetch_artist_genre(artist_id):
     artist_genre_cache[artist_id] = genre
     return genre
 
+def count_potential_playlists(df, min_tracks=3):
+    """Count how many playlists could be created based on genre distribution
+    
+    Returns:
+        tuple: (count of potential playlists, list of genre names)
+    """
+    potential_playlists = 0
+    potential_genres = []
+    genres_count = df['genre'].value_counts()
+    
+    for genre, count in genres_count.items():
+        if count >= min_tracks:
+            potential_playlists += 1
+            potential_genres.append(genre)
+            
+    return potential_playlists, potential_genres
+
 def create_playlists_by_genre(df):
     print("\nStarting to create playlists by genre...")
     playlist_prefix = "[Auto]"
